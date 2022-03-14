@@ -1,84 +1,78 @@
-# Example app with styled-components
+<h1 align="center">
+    Next.js + Styled-Components
+    <br/>Boilerplate
+</h1>
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/vercel/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+<h4 align="center">
+  A simple boilerplate to get you started with Next.js and Styled-Components.
+</h4>
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+<p align="center">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/FeGroders/nextjs-styled-components-boilerplate">&nbsp;
+  <a href="https://github.com/fegroders/nextjs-styled-components-boilerplate/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/fegroders/nextjs-styled-components-boilerplate">&nbsp;
+  </a>
+  <a href="https://github.com/fegroders/nextjs-styled-components-boilerplate/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/fegroders/nextjs-styled-components-boilerplate">&nbsp;
+  </a>
+  <img alt="GitHub" src="https://img.shields.io/github/license/fegroders/nextjs-styled-components-boilerplate">
+</p>
 
-## Preview
+<p align="center">
+  <a href="https://github.com/FeGroders/nextjs-styled-components-boilerplate#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/FeGroders/nextjs-styled-components-boilerplate#-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/FeGroders/nextjs-styled-components-boilerplate#-license">License</a>&nbsp;&nbsp;&nbsp;
+</p>
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## 🚀 Technologies
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-styled-components)
+This project was developed with the following technologies:
 
-## Deploy your own
+-  [Next.js][nextjs]
+-  [Styled-Components][styled-components]
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## 📘 How To Use
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
+[Creating a repository from a template][tutorial]
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+To start developing, you'll need [Git](https://git-scm.com) and [Node.js][node] or [Yarn][yarn] installed on your computer. From your command line:
 
 ```bash
-npx create-next-app --example with-styled-components with-styled-components-app
+# Install dependencies
+$ npm i
+#or
+$ yarn
+
+#To run locally in development mode with live reload:
+$ npm run dev
 # or
-yarn create next-app --example with-styled-components with-styled-components-app
+$ yarn dev
+
+#To see the results locally in production mode:
+$ npm run build
+$ npm run start
+# or
+$ yarn build
+$ yarn start
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## 📄 License
+This project is under the MIT license. See the [LICENSE](https://github.com/FeGroders/nextjs-styled-components-boilerplate/blob/master/LICENSE) for more information.
 
-### Try it on CodeSandbox
+## 💻 Author
 
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
+<a href="https://github.com/FeGroders">
+ <img style="border-radius: 50%" src="https://avatars3.githubusercontent.com/u/62064189?s=460&u=61b426b901b8fe02e12019b1fdb67bf0072d4f00&v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Fernando Groders</b></sub></a>
+ 
+Made by Fernando Groders 👋🏽 Contact-me! <br/>
+[![Instagram Badge](https://img.shields.io/badge/-Instagram-%23E4405F?style=flat-square&labelColor=%23E4405F&logo=instagram&logoColor=white&link=https://instagram.com/fegroders)](https://instagram.com/fegroders) 
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fernandogroders/)](https://www.linkedin.com/in/fernandogroders/) 
+[![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:fernandogroder@gmail.com)](mailto:fernandogroder@gmail.com)
 
-### Notes
-
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
-
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
-
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
-```
-
-**pages/index.js**
-
-```javascript
-import StyledLink from '../components/StyledLink'
-
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
-```
-
-</details>
+[tutorial]: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
+[nextjs]: https://nextjs.org/
+[styled-components]: https://www.styled-components.com/
+[node]: https://nodejs.org/en/
+[yarn]: https://yarnpkg.com/lang/en/docs/install/
