@@ -12,6 +12,8 @@ const Layout = styled.div`
 
 const Title = styled.h2`
   font-size: 30px;
+  width: 40%;
+  text-align: center;
   font-family: ${({ theme }) => theme.fonts.primary};
   color: ${({ theme }) => theme.colors.primary};
   margin: 0;
